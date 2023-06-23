@@ -73,7 +73,7 @@ class ReverseEntityAttribute(object):
             useMetaData=False
 
         if encoded:
-            _dict['type'] = quote.unquote(_dict['type'])
+            _dict['type'] = quote.unquote(_dict['type']).replace(".", "/")
 
 
 

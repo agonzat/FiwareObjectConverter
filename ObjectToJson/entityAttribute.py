@@ -129,7 +129,7 @@ class EntityAttribute():
                 if not encode:
                     self.type = _object._type
                 else:
-                    self.type = quote.quote(_object._type, safe='')
+                    self.type = quote.quote(_object._type.replace("/", "."), safe='')
 
                 self.setPythonMetaData(ipmd, "class")
                 # Special Case 'Image-like'-Data in ROS (very long 'int8[]'- and 'uint8[]' - arrays)
