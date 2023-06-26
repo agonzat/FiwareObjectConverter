@@ -127,9 +127,9 @@ class EntityAttribute():
             if hasattr(_object, '_type') and hasattr(_object, '_slot_types') and hasattr(_object, '__slots__'):   # ROS-Specific Type-Declaration
                 ### This is a special CASE for ROS!!!!
                 if not encode:
-                    self.type = _object._type
+                    self.type = _object._type.replace("/", ":")
                 else:
-                    self.type = quote.quote(_object._type.replace("/", "#"), safe='')
+                    self.type = quote.quote(_object._type.replace("/", ":"), safe='')
 
                 self.setPythonMetaData(ipmd, "class")
                 # Special Case 'Image-like'-Data in ROS (very long 'int8[]'- and 'uint8[]' - arrays)
